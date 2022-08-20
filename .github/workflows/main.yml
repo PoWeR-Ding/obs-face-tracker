@@ -251,10 +251,9 @@ jobs:
               )
               ;;
             28)
-              codesign --force --options runtime --sign "${{ secrets.MACOS_SIGNING_APPLICATION_IDENTITY }}" release/${PLUGIN_NAME}.plugin/Contents/MacOS/${PLUGIN_NAME}
-              codesign -vvv --deep --strict release/${PLUGIN_NAME}.plugin/Contents/MacOS/${PLUGIN_NAME}
               files=(
                 $(find release/${PLUGIN_NAME}.plugin/ -name '*.dylib')
+                release/${PLUGIN_NAME}.plugin/Contents/MacOS/${PLUGIN_NAME}
               )
               ;;
           esac
